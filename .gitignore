@@ -6,6 +6,16 @@
 /.idea
 /.vscode
 /.vagrant
+/config
+/bootstrap
+/app
+/resources
+/storage
+/routes
+/tests
+webpack.mix.*
+*.config
+.env.example
 Homestead.json
 Homestead.yaml
 npm-debug.log
