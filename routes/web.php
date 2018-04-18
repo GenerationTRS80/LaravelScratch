@@ -11,9 +11,9 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 // Route::get('/', function () {
 //     // return 'Hello World';
@@ -23,4 +23,8 @@
 
 Route::get('/about', function () {
     return view('pages.about');
+});
+
+Route::get('/users/{id}', function ($id) {
+    return 'This is user '.$id;
 });
