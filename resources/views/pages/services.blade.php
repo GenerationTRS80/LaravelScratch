@@ -7,8 +7,8 @@
         <title>{{config('app.name','LSAPP')}} </title>
     </head>
     <body>
-      <h1> Welcome to Laravel</h1>
-      <p> This is the laravel application from the "Laravel from Scratch" Youtube series</p>
+      <h1>Services</h1>
+      <p> This is the Services page</p>
 
     </body>
 </html>
