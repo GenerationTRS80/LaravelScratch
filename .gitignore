@@ -17,7 +17,6 @@
 /app/Http/Middleware
 /app/Providers
 /resources/assets/js
-/resources/assets/sass
 /resources/lang
 /storage
 /tests
