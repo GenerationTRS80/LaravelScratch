@@ -18,10 +18,11 @@ $brand-warning: #cbb956;
 $brand-danger: #bf5329;
 
 // Typography
-// $icon-font-path: "~bootstrap-sass/assets/font/bootstrap/";
+// Note: Made typo causing an error: Changes /font/ to /fonts/
+$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 $font-family-sans-serif: "Raleway", sans-serif;
-// px is not compatiable
-$font-size-base: 0.9rem;
+// 14px is not compatiable 1rem 12px 0.9rem
+$font-size-base: 12px;
 $line-height-base: 1.6;
 $text-color: #636b6f;
 
