@@ -1,4 +1,6 @@
-/database
+/database/factories
+/database/.gitignore
+/database/seeds
 /node_modules
 /public/hot
 /public/storage
@@ -16,11 +18,14 @@
 /app/Exceptions
 /app/Http/Controllers/Auth
 /app/Http/Middleware
-/app/Providers
 /resources/assets/js
 /resources/lang
 /storage
 /tests
+AuthServiceProvider.php
+BroadcastServiceProvider.php
+EventServiceProvider.php
+RouteServiceProvider.php
 artisan
 .htaccess
 robots.txt
