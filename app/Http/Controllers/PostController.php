@@ -23,7 +23,8 @@ class PostController extends Controller
         // $posts = Post::all();
 
         # Add clause to sort posts by title
-        $posts = Post::orderBy('title','desc')->get();
+        # posts = Post::orderBy('title','desc')->get();
+        $posts = Post::orderBy('title','desc')->take(1)->get();
 
         // # Where clause
         // return Post::where('title','Post Two')->get();
