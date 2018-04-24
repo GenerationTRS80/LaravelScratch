@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    /*
+    
     //Change table Name 
     protected $table = 'posts';
 
@@ -15,6 +15,5 @@ class Post extends Model
 
     // Add Timestamps
     public $timestamp = true;
-    */
-
+    
 }

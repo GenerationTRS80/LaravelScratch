@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Post;
 
 class PostController extends Controller
 {
@@ -13,7 +14,12 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('posts.index');
+        // Elequent (an object relational mapper) allows you to use any Model function
+        // Fetch all the data in the model (table) Rpost is a recordset
+        // return Post::all(); 
+        $posts = Post::all();
+        // Read data to the view ie copyrecordset
+        return view('posts.index')->with('posts',$posts);
     }
 
     /**
