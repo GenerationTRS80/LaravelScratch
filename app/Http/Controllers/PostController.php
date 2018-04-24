@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 
+// Use DB library to write SQL statements
+use DB;
+
 class PostController extends Controller
 {
     /**
@@ -19,7 +22,7 @@ class PostController extends Controller
         // return Post::all(); 
         // $posts = Post::all();
 
-        // Add clause to sort posts by title
+        # Add clause to sort posts by title
         $posts = Post::orderBy('title','desc')->get();
 
         // # Where clause
