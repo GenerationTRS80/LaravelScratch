@@ -29,6 +29,10 @@ Route::get('/', 'PagesController@index');
 Route::get('/about', 'PagesController@about');
 Route::get('/services', 'PagesController@services');
 
+// Create all the routes that are required with PostController
+// Note: it should be 'posts' (plural)  NOT  'post' (singular)
+Route::resource('posts','PostController');
+
 
 /*
 Route::get('/about', function () {
