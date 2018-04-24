@@ -17,7 +17,14 @@ class PostController extends Controller
         // Elequent (an object relational mapper) allows you to use any Model function
         // Fetch all the data in the model (table) Rpost is a recordset
         // return Post::all(); 
-        $posts = Post::all();
+        // $posts = Post::all();
+
+        // Add clause to sort posts by title
+        $posts = Post::orderBy('title','desc')->get();
+
+        // # Where clause
+        // return Post::where('title','Post Two')->get();
+
         // Read data to the view ie copyrecordset
         return view('posts.index')->with('posts',$posts);
     }
