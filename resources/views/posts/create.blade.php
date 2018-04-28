@@ -19,7 +19,7 @@
         {{-- Text area object arguments (Name, value,class,place holder )  --}}        
         {{Form::textarea('body','',['class' => 'form-control','placeholder' => 'Body Text'])}}
     </div>
-    {{-- Add submit button --}}
+    {{-- Add submit button When submitted there will be a post request to store method in the PostsController --}}
     {{Form::submit('Submit',['class'=>'btn btn-primary'])}}
   {!! Form::close() !!}
 
