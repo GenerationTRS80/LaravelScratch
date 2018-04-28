@@ -5,8 +5,17 @@
   <h1>Create Post</h1>
 
   
-  {!! Form::open(['url' => 'foo/bar']) !!}
-    //
+  {!! Form::open(['action' => 'PostController@store', 'method' => 'POST']) !!}
+    <div class="form-group">
+      {{-- Title --}}
+      {{Form::label('title','Title')}}
+
+      {{-- Input --}}
+      {{-- Text object Arguments (Name, value,class,place holder )  --}}
+      {{Form::text('title','',['class' => 'form-control','placeholder' => 'Title'])}}
+
+
+    </div>
   {!! Form::close() !!}
 
 
