@@ -63,7 +63,17 @@ class PostController extends Controller
             'body'=> 'required'
         ]);
 
-        return 123;
+        // Create Post (Post is brought in from Use App\Post)
+        $post = new Post;
+        $post->title = $request->input('title');
+        $post->body= $request->input('body');     
+
+        // Save the post to the DB
+        $post->save();
+
+        // Redirect after posting to the message.blade.php file
+        return redirect('/posts')->with('success','Post Created');
+
     }
 
     /**
