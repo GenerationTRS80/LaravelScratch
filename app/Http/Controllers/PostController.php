@@ -55,7 +55,15 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // This is where the submit button makes its request
+        // Validate the title and body from the create post form 
+        $this->validate($request,
+        [
+            'title'=> 'required',
+            'body'=> 'required'
+        ]);
+
+        return 123;
     }
 
     /**
