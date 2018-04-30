@@ -10,5 +10,8 @@
     </div>
     <hr>
     <small>Written on {{$post->created_at}}</small>
+    <hr>
+    {{-- Note: You need to use posts_key and NOT id --}}
+    <a href="/posts/{{$post->posts_key}}/edit" class="btn btn-default">Edit</a>
 
 @endsection
