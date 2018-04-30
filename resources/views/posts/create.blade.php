@@ -4,7 +4,7 @@
 @section('content')
   <h1>Create Post</h1>
 
-  
+  {{-- NOTE: For www.mono-print.com You need to have 'PostsController' plural --}}
   {!! Form::open(['action' => 'PostController@store', 'method' => 'POST']) !!}
     <div class="form-group">
       {{-- Title --}}
