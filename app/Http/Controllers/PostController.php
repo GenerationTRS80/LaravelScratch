@@ -22,8 +22,8 @@ class PostController extends Controller
         // return Post::all(); 
         // $posts = Post::all();
 
-        # Add clause to sort posts by title
-        $posts = Post::orderBy('title','desc')->get();
+        // # Add clause to sort posts by title
+        // $posts = Post::orderBy('title','desc')->get();
 
         // # Where clause
         # $posts = Post::orderBy('title','desc')->take(1)->get();
@@ -31,7 +31,7 @@ class PostController extends Controller
 
         // Paginate
         # NOTE: If you set paginate to paginate(10) then pagination will not show unless more that 10 posts
-        $posts = Post::orderBy('title','desc')->paginate(10);
+        $posts = Post::orderBy('created_at','desc')->paginate(10);
 
         // Read data to the view ie copyrecordset
         return view('posts.index')->with('posts',$posts);
