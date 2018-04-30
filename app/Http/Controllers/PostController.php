@@ -31,7 +31,7 @@ class PostController extends Controller
 
         // Paginate
         # NOTE: If you set paginate to paginate(10) then pagination will not show unless more that 10 posts
-        $posts = Post::orderBy('title','desc')->paginate(1);
+        $posts = Post::orderBy('title','desc')->paginate(10);
 
         // Read data to the view ie copyrecordset
         return view('posts.index')->with('posts',$posts);
