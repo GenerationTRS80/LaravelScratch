@@ -20,13 +20,10 @@
         {{Form::textarea('body',$post->body,['id' => 'article-ckeditor', 'class' => 'form-control','placeholder' => 'Body Text'])}}
     </div>
     {{-- Spoof a PUT request --}}
-    {{Form::hidden('_method','_PUT')}}
+    {{Form::hidden('_method','PUT')}}
 
-
-
-    {{-- Add submit button When submitted there will be a post request to store method in the PostsController --}}
+    {{-- Add submit button 
+      Note: When submitted there will be a post request to store method in the PostsController --}}
     {{Form::submit('Submit',['class'=>'btn btn-primary'])}}
   {!! Form::close() !!}
-
-
 @endsection
