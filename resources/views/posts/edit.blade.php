@@ -2,7 +2,7 @@
 
 {{-- Use Laravel Collective https://laravelcollective.com/docs/5.4/html to use as a HTML form Helper--}}
 @section('content')
-  <h1>Create Post</h1>
+  <h1>Edit Post</h1>
 
   {{-- NOTE: For www.mono-print.com You need to have 'PostsController' plural --}}
   {!! Form::open(['action' => ['PostController@update', $post->id], 'method' => 'POST']) !!}
