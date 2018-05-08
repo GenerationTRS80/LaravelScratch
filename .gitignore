@@ -19,6 +19,7 @@
 /app/Exceptions
 /app/Http/Controllers/Auth
 /app/Http/Middleware
+/resources/views/auth
 /resources/assets/js
 /resources/lang
 /storage
