@@ -15,6 +15,12 @@
     </div>
 @endif
 
+{{-- Use Danger alert when post is remove ie red background --}}
+@if(session('remove'))
+    <div class="alert alert-danger">
+      {{session('remove')}}
+    </div>
+@endif
 
 @if(session('error'))
     <div class="alert alert-danger">
