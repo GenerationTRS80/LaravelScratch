@@ -33,6 +33,8 @@ Route::get('/services', 'PagesController@services');
 // Note: it should be 'posts' (plural)  NOT  'post' (singular)
 Route::resource('posts','PostController');
 
+// # Add May 1 2018 PS
+// Route::put('posts', 'PostController@update');
 
 /*
 Route::get('/about', function () {

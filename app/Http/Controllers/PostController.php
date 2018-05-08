@@ -110,7 +110,26 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        // Update Post
+        $this->validate($request,
+        [
+            'title'=> 'required',
+            'body'=> 'required'
+        ]);
+
+        // Update Post (use find to update the correct record)
+        // $post = new Post;
+        $post = Post::find($id);       
+        $post->title = $request->input('title');
+        $post->body= $request->input('body');     
+
+        // Save the post to the DB
+        $post->save();
+
+        // Redirect after posting to the message.blade.php file
+        return redirect('/posts')->with('success','Post Updated');
+
     }
 
     /**

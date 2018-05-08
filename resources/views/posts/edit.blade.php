@@ -4,8 +4,11 @@
 @section('content')
   <h1>Edit Post</h1>
 
-  {{-- NOTE: For www.mono-print.com You need to have 'PostsController' plural --}}
+  {{-- NOTE: For www.mono-print.com You need to have 'PostsController' plural --}}  
   {!! Form::open(['action' => ['PostController@update', $post->id], 'method' => 'POST']) !!}
+  {{-- From comment section of this video --}}
+  {{-- {!! Form::model($post, array('route' => array('posts.update', $post->id), 'method' => 'PUT')) !!}  --}}
+
     <div class="form-group">
       {{-- Title --}}
       {{Form::label('title','Title')}}
@@ -21,7 +24,7 @@
     </div>
     {{-- Spoof a PUT request --}}
     {{Form::hidden('_method','PUT')}}
-
+ 
     {{-- Add submit button 
       Note: When submitted there will be a post request to store method in the PostsController --}}
     {{Form::submit('Submit',['class'=>'btn btn-primary'])}}
