@@ -5,7 +5,7 @@
   <h1>Edit Post</h1>
 
   {{-- NOTE: For www.mono-print.com You need to have 'PostsController' plural --}}  
-  {!! Form::open(['action' => ['PostController@update', $post->id], 'method' => 'POST']) !!}
+  {!! Form::open(['action' => ['PostController@update', $post->posts_key], 'method' => 'POST']) !!}
   {{-- From comment section of this video --}}
   {{-- {!! Form::model($post, array('route' => array('posts.update', $post->id), 'method' => 'PUT')) !!}  --}}
 
