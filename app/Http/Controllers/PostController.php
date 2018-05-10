@@ -66,7 +66,10 @@ class PostController extends Controller
         // Create Post (Post is brought in from Use App\Post)
         $post = new Post;
         $post->title = $request->input('title');
-        $post->body= $request->input('body');     
+        $post->body= $request->input('body'); 
+        
+        // Use auth() for authentication
+        $post->user_id= auth()->user()->id;
 
         // Save the post to the DB
         $post->save();
