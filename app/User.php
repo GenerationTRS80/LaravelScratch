@@ -29,6 +29,6 @@ class User extends Authenticatable
 
     // Add relationship (has many) to Posts
     public function posts(){
-        return $this->hasMany('App/Post');
+        return $this->hasMany('App\Post');
     }
 }
