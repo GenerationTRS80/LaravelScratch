@@ -25,9 +25,16 @@
                             </tr>
                             @foreach($posts as $post)
                                 <tr>
-                                    <th>{{$post->title}}</th>
-                                    <th><a href="/posts/{{$post->id}}/edit" class="btn btn-default">Edit</a></th>
-                                    <th></th>  
+                                    <td>{{$post->title}}</td>
+                                    <td><a href="/posts/{{$post->id}}/edit" class="btn btn-default">Edit</a></td>
+                                    <td>
+                                        {!! Form::open(['action' => ['PostController@destroy',$post->posts_key],'method'=>'POST', 'class'=>'pull-right']) !!}
+
+                                            {{-- Spoof a DELETE request Note: HTML Doesn't support PUT or DELETE methods, then need to be hidden--}}
+                                            {{ Form::hidden('_method','DELETE')}}
+                                            {{ Form::submit('Delete', ['class'=>'btn btn-danger'])}}
+                                        {!! Form::close() !!}
+                                    </td>  
                                 </tr>
                             @endforeach
                         </table>
