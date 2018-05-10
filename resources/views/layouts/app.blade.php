@@ -23,6 +23,22 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    {{-- remove defer from script --}}
+    <script src="{{ asset('js/app.js') }}"></script>
+
+    <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace( 'article-ckeditor' );
+    </script>
+
+    {{-- <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+    <script src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
+    <script>
+        $('textarea').ckeditor();
+        // $('.textarea').ckeditor(); // if class is prefered.
+    </script> --}}
+
+
+
 </body>
 </html>
