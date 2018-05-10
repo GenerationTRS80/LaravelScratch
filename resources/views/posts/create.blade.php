@@ -16,7 +16,7 @@
     </div>
     <div class="form-group">
         {{Form::label('body','Body')}}
-        {{-- Text area object arguments (Name, value,class,place holder )  --}}        
+        {{-- Text area object arguments (Name, value, class,place holder )  --}}        
         {{Form::textarea('body','',['id' => 'article-ckeditor', 'class' => 'form-control','placeholder' => 'Body Text'])}}
     </div>
     {{-- Add submit button When submitted there will be a post request to store method in the PostsController --}}
