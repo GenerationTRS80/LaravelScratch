@@ -15,5 +15,10 @@ class Post extends Model
 
     // Add Timestamps
     public $timestamp = true;
+
+    // Add relationship ( One) to Model User
+    public function user(){
+        return $this->belongsTo('App\User');
+    }
     
 }
