@@ -40,7 +40,6 @@ Kernel.php
 phpunit.xml
 server.php
 settings.json
-User.php
 webpack.mix.*
 *.config
 .env.example
