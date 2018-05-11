@@ -11,6 +11,20 @@ use DB;
 class PostController extends Controller
 {
     /**
+     * Add a new controller instance.
+     *
+     * @return void
+     */
+
+    //  Run construct when the class is instantiated
+    public function __construct()
+    {
+        // Block everything in the dashboard if the user is not authenticated
+        // Add except to add an array of views that needs an except for
+        $this->middleware('auth',['except'=> ['index','show']]);
+    }
+    
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -101,6 +115,14 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
+
+        // Check for correct user. If NOT authorized user then prevent them form editing the post
+        if(auth()->user()->id !==$post->user_id){
+
+            // Show page if not authorized
+            return redirect('/posts')->with('error','Unauthorized Page');
+        }
+
         return view('posts.edit')->with('post',$post);
     }
 
@@ -144,8 +166,16 @@ class PostController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);        
-        $post->delete();
 
+
+        // Check for correct user. If NOT authorized user then prevent them from deleting the post
+        if(auth()->user()->id !==$post->user_id){
+
+            // Show page if not authorized
+            return redirect('/posts')->with('error','Unauthorized Page');
+        }
+
+        $post->delete();
         return redirect('/posts')->with('remove','Post Removed');
     }
 }
