@@ -12,8 +12,11 @@ class DashboardController extends Controller
      *
      * @return void
      */
+
+    //  Run construct when the class is instantiated
     public function __construct()
     {
+        // Block everything in the dashboard if the user is not authenticated
         $this->middleware('auth');
     }
 
