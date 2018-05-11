@@ -5,7 +5,8 @@
   <h1>Create Post</h1>
 
   {{-- NOTE: For www.mono-print.com You need to have 'PostsController' plural --}}
-  {!! Form::open(['action' => 'PostController@store', 'method' => 'POST']) !!}
+  {{-- Allow file upload with: 'enctype' => 'multipart/data'  --}}
+  {!! Form::open(['action' => 'PostController@store', 'method' => 'POST','enctype' => 'multipart/data']) !!}
     <div class="form-group">
       {{-- Title --}}
       {{Form::label('title','Title')}}
@@ -19,6 +20,13 @@
         {{-- Text area object arguments (Name, value, class,place holder )  --}}        
         {{Form::textarea('body','',['id' => 'article-ckeditor', 'class' => 'form-control','placeholder' => 'Body Text'])}}
     </div>
+
+    {{-- File upload --}}
+    <class class="form-group">
+      {{Form::file('cover_image')}}
+    </class>
+    <br>
+    
     {{-- Add submit button When submitted there will be a post request to store method in the PostsController --}}
     {{Form::submit('Submit',['class'=>'btn btn-primary'])}}
   {!! Form::close() !!}

@@ -74,8 +74,34 @@ class PostController extends Controller
         $this->validate($request,
         [
             'title'=> 'required',
-            'body'=> 'required'
+            'body'=> 'required',
+            'cover_image'=> 'image|nullable|max:1999'
         ]);
+
+        // Handle file upload
+        if($request->hasFile('cover_image')){
+            //  Submit image - Get file name with extenstion
+            $fileNameWithExt = $request->file('cover_image')->GetClientOriginalImage();
+
+            // Get just file name - pathinfo gets PHP
+            // Note: need to use pathinfo because there isn't anything in Laravel to get file name
+            $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+
+            // Get just extension
+            $extension = $request->file('cover_image')->getClientOriginalExtension();
+
+            // File name to store
+            // Note: Need to prevent duplicate file names from uploading by comparing names
+            $fileNameToStore = $fileName.'_'.time().'.'.$extension;
+
+            // Upload image
+            // Note: create folder public/cover_images if it has not already been created
+            $path = $request->file('cover_image')->storeAs('public/cover_images',$fileNameToStore);
+
+
+        } else {
+            $fileNameToStore = 'noimage.jpg';
+        }
 
         // Create Post (Post is brought in from Use App\Post)
         $post = new Post;
@@ -84,6 +110,9 @@ class PostController extends Controller
         
         // Use auth() for authentication
         $post->user_id= auth()->user()->id;
+
+        // Post image to DB
+        $post->cover_image = $fileNameToStore;
 
         // Save the post to the DB
         $post->save();
