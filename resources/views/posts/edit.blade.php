@@ -5,7 +5,7 @@
   <h1>Edit Post</h1>
 
   {{-- NOTE: For www.mono-print.com You need to have 'PostsController' plural --}}  
-  {!! Form::open(['action' => ['PostController@update', $post->posts_key], 'method' => 'POST']) !!}
+  {!! Form::open(['action' => ['PostController@update', $post->posts_key], 'method' => 'POST','enctype' => 'multipart/form-data']) !!}
   {{-- From comment section of this video --}}
   {{-- {!! Form::model($post, array('route' => array('posts.update', $post->id), 'method' => 'PUT')) !!}  --}}
 
@@ -22,6 +22,12 @@
         {{-- Text area object arguments (Name, value,class,place holder )  --}}        
         {{Form::textarea('body',$post->body,['id' => 'article-ckeditor', 'class' => 'form-control','placeholder' => 'Body Text'])}}
     </div>
+
+    {{-- File upload --}}
+    <class class="form-group">
+      {{Form::file('cover_image')}}
+    </class>
+    <br><br>
     {{-- Spoof a PUT request --}}
     {{Form::hidden('_method','PUT')}}
  
@@ -29,4 +35,5 @@
       Note: When submitted there will be a post request to store method in the PostsController --}}
     {{Form::submit('Submit',['class'=>'btn btn-primary'])}}
   {!! Form::close() !!}
+
 @endsection

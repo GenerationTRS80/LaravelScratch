@@ -172,11 +172,37 @@ class PostController extends Controller
             'body'=> 'required'
         ]);
 
+        // Handle file upload
+        if($request->hasFile('cover_image')){
+            //  Submit image - Get file name with extenstion
+            $fileNameWithExt = $request->file('cover_image')->getClientOriginalName();
+
+            // Get just file name - pathinfo gets PHP
+            // Note: need to use pathinfo because there isn't anything in Laravel to get file name
+            $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+
+            // Get just extension
+            $extension = $request->file('cover_image')->getClientOriginalExtension();
+
+            // File name to store
+            // Note: Need to prevent duplicate file names from uploading by comparing names
+            $fileNameToStore = $fileName.'_'.time().'.'.$extension;
+
+            // Upload image
+            // Note: create folder public/cover_images if it has not already been created
+            $path = $request->file('cover_image')->storeAs('public/cover_images',$fileNameToStore);
+        }
+        
         // Update Post (use find to update the correct record)
         // $post = new Post;
         $post = Post::find($id);       
         $post->title = $request->input('title');
         $post->body= $request->input('body');     
+
+        if($request->hasFile('cover_image')){
+            $post->cover_image = $fileNameToStore;
+        }
+
 
         // Save the post to the DB
         $post->save();
