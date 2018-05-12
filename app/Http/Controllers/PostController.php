@@ -81,7 +81,7 @@ class PostController extends Controller
         // Handle file upload
         if($request->hasFile('cover_image')){
             //  Submit image - Get file name with extenstion
-            $fileNameWithExt = $request->file('cover_image')->GetClientOriginalImage();
+            $fileNameWithExt = $request->file('cover_image')->getClientOriginalName();
 
             // Get just file name - pathinfo gets PHP
             // Note: need to use pathinfo because there isn't anything in Laravel to get file name

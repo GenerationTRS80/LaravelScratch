@@ -5,8 +5,8 @@
   <h1>Create Post</h1>
 
   {{-- NOTE: For www.mono-print.com You need to have 'PostsController' plural --}}
-  {{-- Allow file upload with: 'enctype' => 'multipart/data'  --}}
-  {!! Form::open(['action' => 'PostController@store', 'method' => 'POST','enctype' => 'multipart/data']) !!}
+  {{-- Allow file upload with: 'enctype' => 'multipart/form-data  --}}
+  {!! Form::open(['action' => 'PostController@store', 'method' => 'POST','enctype' => 'multipart/form-data']) !!}
     <div class="form-group">
       {{-- Title --}}
       {{Form::label('title','Title')}}
