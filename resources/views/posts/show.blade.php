@@ -3,6 +3,9 @@
 @section('content')
   <a href="/posts" class="btn btn-default">Go Back</a>
   <h1>{{$post->title}}</h1>
+  <img style="width=75%" src="/storage/cover_images/{{$post->cover_image}}">
+  <br>
+  <br>
     <div>
       {{-- Parse HTML with double exclamation !! --}}
       {{-- When using the CheckEditor in the Create Post body, it will use HTML tags in the formatting of the text --}}
