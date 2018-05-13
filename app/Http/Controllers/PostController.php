@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Post;
 
 // Use DB library to write SQL statements
@@ -228,6 +229,12 @@ class PostController extends Controller
 
             // Show page if not authorized
             return redirect('/posts')->with('error','Unauthorized Page');
+        }
+
+        // If no image then delete the image
+        if($post->cover_image != 'noimage.jpg'){
+            // Delete image
+            Storage::delete('public/cover_images/'.$post->cover_image);
         }
 
         $post->delete();
